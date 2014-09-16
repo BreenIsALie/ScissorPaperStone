@@ -13,7 +13,7 @@ int main(void)
 {
 	int PC, PCScore=0, CPUScore=0;		/*PC=Player Character, CPU = Computer Choice*/
 	srand(time(0));
-	int CPU = rand("%d") %4;
+	int CPU = rand("%d") %4 +1;
 
 	printf("\nWelcome to Scissor, Paper, Stone. Pick your weapon:");
 	printf("\n1: Scissor\n2: Paper\n3: Stone\n4: Exit\n");
