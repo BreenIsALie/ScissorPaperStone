@@ -14,20 +14,18 @@ CPU = The program that plays against the player. Named CPU due to it being short
 #include <time.h>
 
 int ChoiceInput();							/*Player input function*/
-int CPUscoreUp();							/*CPU score function*/
-int PlayerScoreUp();						/*Player score function*/
-int Random1();
+int Random1();								/*CPU random choice function*/
 
 
 int main(void)
 {
 
 	int Player, PlayerScore=0, CPUscore=0;			/*Declaration for player choice and score counters*/
-	int CPU;
+	int CPU;										/*Computer choice*/
 
 	while (CPUscore < 10 && PlayerScore < 10)		/*Run loop until ether player or computer reaches 10 points*/
 	{
-		Player = ChoiceInput();
+		Player = ChoiceInput();					
 		CPU = Random1();
 		
 		if (Player == CPU)							/*If Player and CPU are matched*/
@@ -38,14 +36,14 @@ int main(void)
 		}
 		else if (Player == 1 && CPU == 2 || Player == 2 && CPU == 3 || Player == 3 && CPU == 1)		 /*If player has better then the computer*/
 		{
-			PlayerScore++;
+			PlayerScore++;				/*Add to player score*/
 			printf("\nCONGRATULATIONS: The foe has been defeated");
 			printf("\nPlayer Score: %d", PlayerScore);
 			printf("\nComputer Score: %d", CPUscore);
 		}
 		else if (Player == 2 && CPU == 1 || Player == 3 && CPU == 2 || Player == 1 && CPU == 3)		/*If CPU has better then Player*/
 		{
-			CPUscore++;
+			CPUscore++;					/*Add to computer score*/
 			printf("\nBITTER DEFEAT: You have been vanquished by the foe");
 			printf("\nPlayer Score: %d", PlayerScore);
 			printf("\nComputer Score: %d", CPUscore);
@@ -59,7 +57,7 @@ int main(void)
 			printf("HOLD IT ! No house rules or improvised weapons. Pick one from the list");
 		}
 	}
-	fflush(stdin);
+	fflush(stdin);					/*Pause before exit to display scores*/
 	printf("\n\n\nGame has ended\nPlayer Score: %d", PlayerScore);
 	printf("\nComputer Score: %d", CPUscore);
 	printf("\n\nPress any key to exit");
@@ -74,7 +72,7 @@ int ChoiceInput()				/*Function to present user with choice prompt*/
 	scanf_s("%d", &Player);
 	return Player;
 }
-int Random1()
+int Random1()					/*Function to create random 1 - 3 number for CPU to use as choice*/
 {
 	unsigned Seed;
 	Seed = (unsigned)time(NULL);
