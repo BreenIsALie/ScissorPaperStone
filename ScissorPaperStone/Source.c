@@ -7,7 +7,9 @@ Scissor > Paper
 Paper > Stone
 Stone > Scissor
 
-CPU = The program that plays against the player. Named CPU due to it being shorter. Think CPU players in Smash Bros or something*/
+CPU = The program that plays against the player. 
+Named CPU due to it being shorter.
+Think CPU players in Smash Bros or something*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,6 +24,9 @@ int main(void)
 
 	int Player, PlayerScore=0, CPUscore=0;			/*Declaration for player choice and score counters*/
 	int CPU;										/*Computer choice*/
+	unsigned Seed;
+	Seed = (unsigned)time(NULL);
+	srand(Seed);
 
 	while (CPUscore < 10 && PlayerScore < 10)		/*Run loop until ether player or computer reaches 10 points*/
 	{
@@ -74,9 +79,6 @@ int ChoiceInput()				/*Function to present user with choice prompt*/
 }
 int Random1()					/*Function to create random 1 - 3 number for CPU to use as choice*/
 {
-	unsigned Seed;
-	Seed = (unsigned)time(NULL);
-	srand(Seed);
 	int CPU = (1 + (rand() % 3));
 	return CPU;
 }
